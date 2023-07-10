@@ -1,0 +1,28 @@
+name: "test"
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+
+            - uses: actions/setup-java@v3
+              with:
+                java-version: '17.0.5+8'
+                architecture: x64
+                distribution: 'temurin'
+
+            - name: Run tests
+              run: ./run-tests.sh
+
+            - name: Check if test failed
+              if: failure()
+              run: echo("ERROR")
+                
+            - name: Wrap up
+              run: echo("DONE")
