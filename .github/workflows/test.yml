@@ -22,7 +22,7 @@ jobs:
 
             - name: Check if test failed
               if: failure()
-              run: echo("ERROR")
+              run: echo "ERROR"
                 
             - name: Wrap up
-              run: echo("DONE")
+              run: echo "DONE"
