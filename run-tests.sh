@@ -8,7 +8,7 @@ check_error() {
 	local status=$1
 	if [ $status -ne 0 ]; then
 		touch "${ERRORTXT}"
-		log "Failed. Code '${status}'" >> "${ERRORTXT}"
+		echo "Failed. Code '${status}'" >> "${ERRORTXT}"
 	fi
 }
 
